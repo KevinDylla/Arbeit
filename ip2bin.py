@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import argparse 
 import ipaddress
+from sys import exit
 
 parser = argparse.ArgumentParser(description='IP zu Binär form')
 parser.add_argument('IP', metavar='IP', type=str, help=' 0.0.0.0')
@@ -14,6 +15,7 @@ try:
 	ip = args.IP.split(".")
 except: 
 	print("Fehler in der IP ? Angegbene IP : %s"% args.IP)
+	exit(666)
 
 
 for index,octet in enumerate(ip):
@@ -22,7 +24,6 @@ for index,octet in enumerate(ip):
 
 
 
-print("Die IP löst sich auf zu : ")
 for octet in ip:
 	ergebnis = ergebnis + octet + "." # Formatiert string
 
